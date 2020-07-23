@@ -594,6 +594,33 @@ module StripeMock
       }.merge(params)
     end
 
+    def self.mock_price(params={})
+      {
+        id: "gold",
+        object: "price",
+        active: true,
+        billing_scheme: "per_unit",
+        created: 1595508086,
+        currency: "eur",
+        livemode: false,
+        lookup_key: nil,
+        metadata: {},
+        nickname: nil,
+        product: "prod_Gx3cbTRnb7s344",
+        recurring: {
+          "aggregate_usage": nil,
+          "interval": "month",
+          "interval_count": 1,
+          "usage_type": "licensed"
+        },
+        tiers_mode: nil,
+        transform_quantity: nil,
+        type: "recurring",
+        unit_amount: 2000,
+        unit_amount_decimal: "2000"
+      }.merge(params)
+    end
+
     def self.mock_recipient(cards, params={})
       rp_id = params[:id] || "test_rp_default"
       cards.each {|card| card[:recipient] = rp_id}

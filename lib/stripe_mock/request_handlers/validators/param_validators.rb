@@ -47,7 +47,7 @@ module StripeMock
           raise Stripe::InvalidRequestError.new(missing_param_message(k), k) if params[k].nil?
         end
 
-        if products[ params[:id] ]
+        if prices[ params[:id] ]
           raise Stripe::InvalidRequestError.new(already_exists_message(Stripe::Price), :id)
         end
       end
