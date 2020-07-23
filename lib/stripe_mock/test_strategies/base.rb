@@ -22,6 +22,24 @@ module StripeMock
         Stripe::Product.retrieve(product_id)
       end
 
+      def create_price(params = {})
+        Stripe::Price.create create_price_params(params)
+      end
+
+      def create_price_params(params={})
+        {
+          :id => 'stripe_mock_default_price_id',
+          :unit_amount => (100..300).to_a.sample,
+          :currency => 'eur',
+          :recurring => {
+            :interval => 'month'
+          }
+        }.merge(params)
+      end
+
+      def retrieve_price(price_id)
+        Stripe::Price.retrieve(price_id)
+      end
 
       def list_plans(limit)
         Stripe::Plan.list(limit: limit)

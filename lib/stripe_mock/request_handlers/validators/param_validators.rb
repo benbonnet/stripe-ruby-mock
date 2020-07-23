@@ -22,7 +22,6 @@ module StripeMock
       # ProductValidator
       #
 
-
       def validate_create_product_params(params)
         params[:id] = params[:id].to_s
         @base_strategy.create_product_params.keys.reject{ |k,_| k == :id }.each do |k|
@@ -35,6 +34,21 @@ module StripeMock
 
         if products[ params[:id] ]
           raise Stripe::InvalidRequestError.new(already_exists_message(Stripe::Product), :id)
+        end
+      end
+
+      #
+      # PriceValidator
+      #
+
+      def validate_create_price_params(params)
+        params[:id] = params[:id].to_s
+        @base_strategy.create_price_params.keys.reject{ |k,_| k == :id }.each do |k|
+          raise Stripe::InvalidRequestError.new(missing_param_message(k), k) if params[k].nil?
+        end
+
+        if products[ params[:id] ]
+          raise Stripe::InvalidRequestError.new(already_exists_message(Stripe::Price), :id)
         end
       end
 
