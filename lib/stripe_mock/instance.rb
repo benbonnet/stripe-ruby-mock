@@ -51,6 +51,7 @@ module StripeMock
     include StripeMock::RequestHandlers::EphemeralKey
     include StripeMock::RequestHandlers::TaxRates
     include StripeMock::RequestHandlers::Checkout
+    include StripeMock::RequestHandlers::Prices
     include StripeMock::RequestHandlers::Checkout::Session
 
     attr_reader :accounts, :balance, :balance_transactions, :bank_tokens, :charges, :coupons, :customers,
@@ -82,6 +83,7 @@ module StripeMock
       @products = {}
       @recipients = {}
       @refunds = {}
+      @prices = {}
       @transfers = {}
       @payouts = {}
       @subscriptions = {}
