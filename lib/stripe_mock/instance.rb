@@ -57,7 +57,7 @@ module StripeMock
     attr_reader :accounts, :balance, :balance_transactions, :bank_tokens, :charges, :coupons, :customers,
                 :disputes, :events, :invoices, :invoice_items, :orders, :payment_intents, :payment_methods,
                 :setup_intents, :plans, :recipients, :refunds, :transfers, :payouts, :subscriptions, :country_spec,
-                :subscriptions_items, :products, :tax_rates, :checkout_sessions
+                :subscriptions_items, :products, :tax_rates, :checkout_sessions, :prices
 
     attr_accessor :error_queue, :debug, :conversion_rate, :account_balance
 
